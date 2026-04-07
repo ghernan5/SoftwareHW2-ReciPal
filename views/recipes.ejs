@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ReciPal | Recipes</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/recipes">Recipes</a>
+        <a href="/add-recipe">Add New</a>
+    </nav>
+
+    <div class="container">
+        <header class="card">
+            <h1>Recipe Collection</h1>
+            <input type="text" id="recipeSearch" placeholder="Search recipes by title..." onkeyup="filterRecipes()">
+        </header>
+
+        <% const proteins = ['Chicken', 'Beef', 'Tofu', 'Grains']; %>
+        
+        <% proteins.forEach(protein => { %>
+            <section class="card protein-section">
+                <h2><%= protein %> Recipes</h2>
+                <table class="recipe-table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="recipe-list">
+                        <% 
+                           // Filter results to only show recipes matching this protein category
+                           const filteredRecipes = recipes.filter(r => r.protein_type === protein); 
+                        %>
+                        
+                        <% if (filteredRecipes.length > 0) { %>
+                            <% filteredRecipes.forEach(recipe => { %>
+                                <tr class="recipe-row">
+                                    <td class="recipe-title"><%= recipe.title %></td>
+                                    <td><%= recipe.protein_type %></td>
+                                    <td><a href="/recipe/<%= recipe.id %>" class="view-link">View Details</a></td>
+                                </tr>
+                            <% }) %>
+                        <% } else { %>
+                            <tr>
+                                <td colspan="3">No recipes found for <%= protein %>.</td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </section>
+        <% }) %>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

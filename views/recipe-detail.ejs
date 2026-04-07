@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ReciPal | <%= recipe.title %></title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/recipes">Recipes</a>
+        <a href="/add-recipe">Add New</a>
+    </nav>
+    <div class="container">
+        <article class="card">
+            <h1><%= recipe.title %></h1>
+            <p><em>Category: <%= recipe.protein_type %></em></p>
+            <div class="recipe-content" style="text-align: left;">
+                <h3>Ingredients</h3>
+                <p><small>(Hover over an ingredient for a special tip!)</small></p>
+                <ul>
+                    <% recipe.ingredients.forEach(ing => { %>
+                        <li class="ingredient-item" data-info="<%= ing.info %>">
+                            <%= ing.name %>
+                        </li>
+                    <% }) %>
+                </ul>
+                <h3>Cooking Instructions</h3>
+                <p style="white-space: pre-line;"><%= recipe.instructions %></p>
+            </div>
+            <hr style="margin: 25px 0; border: 0; border-top: 1px solid #d2b48c;">
+            <form action="/recipe/<%= recipe.id %>/delete" method="POST" 
+                  onsubmit="return confirm('Are you sure you want to delete this recipe?');">
+                <button type="submit" class="delete-btn">
+                    <i class="fa-solid fa-trash-can"></i> Delete This Recipe
+                </button>
+            </form>
+            <div style="margin-top: 15px;">
+                <a href="/recipes" class="view-link">← Back to All Recipes</a>
+            </div>
+        </article>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

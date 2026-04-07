@@ -1,0 +1,125 @@
+/* General Setup */
+body {
+    background-color: #f5f5dc;
+    color: #4a3728;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation */
+nav {
+    background-color: #d2b48c;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: #4a3728;
+    font-weight: bold;
+    margin: 0 20px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #8b4513;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #d2b48c;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+h1, h2 {
+    color: #8b4513;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.view-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #8b4513;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.view-link:hover {
+    background-color: #4a3728;
+}
+
+.recipe-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.recipe-table th, .recipe-table td {
+    padding: 12px;
+    border-bottom: 1px solid #d2b48c;
+    text-align: left;
+}
+
+#tooltip {
+    position: absolute;
+    background: #4a3728;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    max-width: 250px;
+    z-index: 1000;
+    pointer-events: none;
+}
+.hidden { display: none; }
+.ingredient-item { cursor: help; color: #8b4513; text-decoration: underline dotted; }
+
+.delete-btn {
+    display: inline-block;
+    background-color: #c0392b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-bottom: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #a93226;
+    transform: scale(1.02);
+}
+
+.delete-btn i {
+    margin-right: 8px;
+}
+
+
+

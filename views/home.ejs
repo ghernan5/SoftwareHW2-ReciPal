@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ReciPal | Home</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/recipes">Recipes</a>
+        <a href="/add-recipe">Add New</a>
+    </nav>
+    
+    <div class="container">
+        <header class="card">
+            <h1>Welcome to My Kitchen</h1>
+            <p>I LOVE Mexican Cuisine!! This page will share some of my favorite mexican recipes.</p>
+        </header>
+        <main class="card">
+            <h2>My Cooking Experience</h2>
+            <p>Ever since I got to college, I missed the food my mom used to make me, so I began to ask her about her recipes and started to make them on my own! Eer since I have been learning recipes on my own.</p>
+        <section class="card">
+            <h2>Featured Recommendation</h2>
+    
+            <% if (featured) { %>
+                <p>Feeling hungry? Check out our 
+                    <strong><%= featured.title %></strong> 
+                    recipe in the listings!
+                </p>
+                <a href="/recipe/<%= featured.id %>" class="view-link">View This Recipe</a>
+            <% } else { %>
+                <p>Check out our full recipe list for some inspiration!</p>
+                <a href="/recipes" class="view-link">Browse All</a>
+            <% } %>
+        </section>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
